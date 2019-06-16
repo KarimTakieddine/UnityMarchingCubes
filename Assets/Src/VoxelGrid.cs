@@ -64,6 +64,36 @@ public class VoxelGrid : MonoBehaviour
         }
     }
 
+    public int GetGridIndex(
+        float position,
+        int cell_count
+    )
+    {
+        return Mathf.Clamp(
+            (int)( position / CellSize ),
+            0,
+            cell_count - 1
+        );
+    }
+
+    public int GetGridIndex(
+        int x,
+        int y,
+        int z
+    )
+    {
+        return ( CellCountX * CellCountY * z ) + ( CellCountX * y ) + x;
+    }
+
+    public int GetGridIndex(Vector3 position)
+    {
+        return GetGridIndex(
+            GetGridIndex(position.x, CellCountX),
+            GetGridIndex(position.y, CellCountX),
+            GetGridIndex(position.z, CellCountZ)
+        );
+    }
+
     public static void DrawEdge(
         in Edge edge,
         Color color

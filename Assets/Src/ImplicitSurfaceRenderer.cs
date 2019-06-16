@@ -500,35 +500,52 @@ public class ImplicitSurfaceRenderer : MonoBehaviour
 
     private void LoadTriangles()
     {
-        List<Cube> grid_cells   = Grid.Cells;
-        int cell_count          = grid_cells.Count;
-
-        if (cell_count == 0)
-        {
-            return;
-        }
-
         Triangles.Clear();
 
-        for (int i = 0; i < cell_count; ++i)
+        SurfaceBounds surface_bounds = Surface.GetSurfaceBounds();
+
+        Vector3 surface_max = surface_bounds.Maximum;
+        Vector3 surface_min = surface_bounds.Minimum;
+
+        int cell_count_x    = Grid.CellCountX;
+        int max_x_index     = Grid.GetGridIndex(surface_max.x, cell_count_x);
+        int min_x_index     = Grid.GetGridIndex(surface_min.x, cell_count_x);
+
+        int cell_count_y    = Grid.CellCountY;
+        int max_y_index     = Grid.GetGridIndex(surface_max.y, cell_count_y);
+        int min_y_index     = Grid.GetGridIndex(surface_min.y, cell_count_y);
+
+        int cell_count_z    = Grid.CellCountZ;
+        int max_z_index     = Grid.GetGridIndex(surface_max.z, cell_count_z);
+        int min_z_index     = Grid.GetGridIndex(surface_min.z, cell_count_z);
+
+        List<Cube> grid_cells = Grid.Cells;
+
+        for ( int i = min_z_index; i <= max_z_index; ++i )
         {
-            List<Edge> intersecting_edges   = GetIntersectingEdges(grid_cells[i], Surface);
-            int edge_count                  = intersecting_edges.Count;
-
-            if (edge_count == 0 || edge_count % 3 != 0)
+            for ( int j = min_y_index; j <= max_y_index; ++j )
             {
-                continue;
-            }
+                for (int k = min_x_index; k <= max_x_index; ++k )
+                {
+                    List<Edge> intersecting_edges   = GetIntersectingEdges(grid_cells[Grid.GetGridIndex(k, j, i)], Surface);
+                    int edge_count                  = intersecting_edges.Count;
 
-            for (int j = 0; j < edge_count; j += 3)
-            {
-                Triangles.Add(
-                    new Triangle(
-                        GetIntersectionPoint(intersecting_edges[j], Surface),
-                        GetIntersectionPoint(intersecting_edges[j + 1], Surface),
-                        GetIntersectionPoint(intersecting_edges[j + 2], Surface)
-                    )
-                );
+                    if (edge_count == 0 || edge_count % 3 != 0)
+                    {
+                        continue;
+                    }
+
+                    for (int l = 0; l < edge_count; l += 3)
+                    {
+                        Triangles.Add(
+                            new Triangle(
+                                GetIntersectionPoint(intersecting_edges[l], Surface),
+                                GetIntersectionPoint(intersecting_edges[l + 1], Surface),
+                                GetIntersectionPoint(intersecting_edges[l + 2], Surface)
+                            )
+                        );
+                    }
+                }
             }
         }
     }
