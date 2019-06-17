@@ -21,7 +21,7 @@
 
 \*-------------------------------------------------------------------------------------*/
 
-﻿using UnityEngine;
+using UnityEngine;
 
 readonly public struct Edge
 {

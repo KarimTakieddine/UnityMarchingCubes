@@ -21,7 +21,7 @@
 
 \*-------------------------------------------------------------------------------------*/
 
-﻿using UnityEngine;
+using UnityEngine;
 
 public class ImplicitSphere : ImplicitSurface
 {

@@ -21,7 +21,7 @@
 
 \*-------------------------------------------------------------------------------------*/
 
-﻿using UnityEngine;
+using UnityEngine;
 using System.Linq;
 
 public class ImplicitPlane : ImplicitSurface
