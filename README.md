@@ -10,15 +10,15 @@ In addition, the code itself exposes relevant __*MonoBehaviour*__ component impl
 
 #### Plane:
 
-![](demo_plane.gif)]
+![](Demo/Animations/demo_plane.gif)]
 
 #### Sphere:
 
-![](demo_sphere.gif)]
+![](Demo/Animations/demo_sphere.gif)]
 
 #### Metaballs ( as invented by *Jim Blinn* in __*A generalization of algebraic surface drawing. ACM Transactions on Graphics (TOG), 1(3):235–256, 1982*__ ):
 
-![](demo_metaballs.gif)]
+![](Demo/Animations/demo_metaballs.gif)]
 
 # License (__*MIT*__ ):
 
@@ -32,7 +32,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 # Acknowledgements and sources of inspiration:
 
- - Paul Bourke: __*Polygonising a scalar field*__ (http://paulbourke.net/geometry/polygonise/)
+ - Paul Bourke: __*Polygonising a Scalar Field*__ (http://paulbourke.net/geometry/polygonise/)
 
  - Ben Kenwright: __*Metaballs & Marching Cubes, Blobby Objects and Isosurfaces*__ (http://www.xbdev.net/misc_demos/demos/marching_cubes/paper.pdf)
 
