@@ -10,15 +10,15 @@ In addition, the code itself exposes relevant __*MonoBehaviour*__ component impl
 
 #### Plane:
 
-![](Demo/Animations/demo_plane.gif)
+![](demo_plane.gif)
 
 #### Sphere:
 
-![](Demo/Animations/demo_sphere.gif)
+![](demo_sphere.gif)
 
 #### Metaballs ( as invented by *Jim Blinn* in __*A generalization of algebraic surface drawing. ACM Transactions on Graphics (TOG), 1(3):235–256, 1982*__ ):
 
-![](Demo/Animations/demo_metaballs.gif)
+![](demo_metaballs.gif)
 
 # License (__*MIT*__ ):
 
